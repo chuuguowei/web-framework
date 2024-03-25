@@ -9,7 +9,8 @@ public class Test {
         reverseStr("123456");
         sortArr(new int[]{10, 3, 1, 5, 6, 7});
         selectSort(new int[]{10, 3, 1, 5, 6, 7});
-        quickSortArr(new int[]{10, 3, 1, 5, 6, 7, 4});
+        int[] newArr = quickSortArr(new int[]{10, 3, 1, 5, 6, 7, 4});
+        binSearch(newArr, 6);
         MyNode node = new MyNode(1);
         node.appendNode(2);
         node.appendNode(3);
@@ -109,9 +110,10 @@ public class Test {
         System.out.println(Arrays.toString(arr));
     }
 
-    public static void quickSortArr(int[] arr) {
+    public static int[] quickSortArr(int[] arr) {
         quickSort(arr, 0, arr.length - 1);
         System.out.println(Arrays.toString(arr));
+        return arr;
     }
 
     public static void quickSort(int[] arr, int start, int end) {
@@ -134,6 +136,22 @@ public class Test {
         arr[l] = p;
         quickSort(arr, 0, l - 1);
         quickSort(arr, l + 1, r);
+    }
+
+    public static void binSearch(int[] arr, int num) {
+        int l=0,r=arr.length-1,middle;
+        while (l <= r) {
+            middle = (l+r)/2;
+            if (num == arr[middle]) {
+                System.out.println(middle);
+                return;
+            } else if (num < arr[middle]) {
+                r = middle -1;
+            } else {
+                l = middle + 1;
+            }
+        }
+        System.out.println(-1);
     }
 
 }
