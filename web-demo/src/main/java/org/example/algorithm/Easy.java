@@ -2,7 +2,7 @@ package org.example.algorithm;
 
 import java.util.Arrays;
 
-public class Test {
+public class Easy {
 
     public static void main(String[] args) {
         reverse(12345);
